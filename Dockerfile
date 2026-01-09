@@ -28,14 +28,13 @@ RUN useradd -m -s /bin/bash container && \
     apt-get update && \    
     apt-get install -y python3.13-dev && \                                                         
     apt-get clean && \                                                        
-    python3.13 -c "import uuid; print(uuid.uuid4())" > /etc/machine-id 
+    python3.13 -c "import uuid; print(uuid.uuid4())" > /etc/machine-id  \
+    mkdir -p /home/me \
+    echo "/home/me created"
 
 # Switch to container user
 USER container
 ENV USER=container HOME=/home/container
-
-# Copy the compiled application from the builder stage
-COPY bs_server /home/container
 
 # Set the working directory
 WORKDIR /home/container
@@ -43,9 +42,8 @@ COPY ./entrypoint.sh /entrypoint.sh
 
 # Set permissions
 USER root
-RUN chmod +x /entrypoint.sh && chown -R container:container /home/container
+RUN chmod +x /entrypoint.sh && chown container:container /entrypoint.sh
 USER container
-
 # Expose the necessary port
 EXPOSE 43210/udp
 
