@@ -5,12 +5,12 @@ Use this to get an egg, not the kind u eat, the kind u put in pterodactyl panel 
 - Select a nest or create a new one
 - Create a new egg
 - Enter the following info in the mentioned field
-  - Docker Images: ghcr.io/bombsquad-community/pterodactyl-egg/bombsquad_egg:debug_v0.0.4alpha_x86_64
-  - Startup Command: ./ballisticakit_server
-  - Stop Command: ^C
-  - Log Configuration: {}
-  - Configuration Files: {}
-  - Start Configuration: {}
+  - Docker Images: `ghcr.io/bombsquad-community/pterodactyl-egg/bombsquad_egg:debug_v0.0.4alpha_x86_64`
+  - Startup Command: `./ballisticakit_server`
+  - Stop Command: `^C`
+  - Log Configuration: `{}`
+  - Configuration Files: `{}`
+  - Start Configuration: `{}`
 - Click "Create"
 
 ## How to get bombsquad server files
