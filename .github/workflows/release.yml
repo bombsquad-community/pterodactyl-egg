@@ -46,14 +46,14 @@ jobs:
           mv build/prefab/full/linux_x86_64_server/debug/ bs_server
           docker build -t bombsquad_egg:latest -f Dockerfile .
           docker save bombsquad_egg:latest -o bombsquad_server_egg_x86_64.tar
-      - name: Zip the build
-        run: zip -j bombsquad_server_egg_x86_64.tar.zip bombsquad_server_egg_x86_64.tar
+      # - name: Zip the build
+      #   run: zip -j bombsquad_server_egg_x86_64.tar.zip bombsquad_server_egg_x86_64.tar
       - name: Upload the build
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           omitBody: true
-          artifacts: bombsquad_server_egg_x86_64.tar.zip
+          artifacts: bombsquad_server_egg_x86_64.tar
       # - name: Push to github image repository
       #   run: |
       #     docker tag bombsquad_egg:latest ghcr.io/${GITHUB_REPOSITORY,,}/bombsquad_egg:debug_${{ github.ref_name }}_x86_64
@@ -76,14 +76,14 @@ jobs:
           mv build/prefab/full/linux_arm64_server/debug/ bs_server
           docker build -t bombsquad_egg:latest -f Dockerfile .
           docker save bombsquad_egg:latest -o bombsquad_server_egg_arm64.tar
-      - name: Zip the build
-        run: zip -j bombsquad_server_egg_arm64.tar.zip bombsquad_server_egg_arm64.tar
+      # - name: Zip the build
+      #   run: zip -j bombsquad_server_egg_arm64.tar.zip bombsquad_server_egg_arm64.tar
       - name: Upload the build
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
           omitBody: true
-          artifacts: bombsquad_server_egg_arm64.tar.zip
+          artifacts: bombsquad_server_egg_arm64.tar
       # - name: Push to github image repository
       #   run: |
       #     docker tag bombsquad_egg:latest ghcr.io/${GITHUB_REPOSITORY,,}/bombsquad_egg:debug_${{ github.ref_name }}_arm64
@@ -93,6 +93,7 @@ jobs:
   #   needs:
   #     [
   #       release_docker_server_debug_image,
+  
   #       release_docker_arm64_server_release_image,
   #     ]
   #   runs-on: ubuntu-latest
