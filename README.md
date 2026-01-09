@@ -14,7 +14,7 @@ Use this to get an egg, not the kind u eat, the kind u put in pterodactyl panel 
 - Click "Create"
 
 ## How to get bombsquad server files
-You can use install-script.sh and paste in the "Install Script" tab in your egg to install the vanilla server
+You can use [install-script.sh](install-script.sh) and paste in the "Install Script" tab in your egg to install the vanilla server
 or customize it to install custom server scripts
 or create a server, and after starting it, manually upload the server files
 
