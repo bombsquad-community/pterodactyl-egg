@@ -10,7 +10,7 @@
     "description": null,
     "features": null,
     "docker_images": {
-        "ghcr.io\/loupg450\/pterodactyl-egg\/bombsquad_egg:latest": "ghcr.io\/loupg450\/pterodactyl-egg\/bombsquad_egg:latest"
+        "ghcr.io\/bombsquad-community\/pterodactyl-egg\/bombsquad_egg:latest": "ghcr.io\/bombsquad-community\/pterodactyl-egg\/bombsquad_egg:latest"
     },
     "file_denylist": [],
     "startup": ".\/ballisticakit_server",
