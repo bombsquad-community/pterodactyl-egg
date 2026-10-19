@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
 # system to start with the build with
-# currently will break for other images
-ARG base_image=ubuntu:latest
+# Ubuntu 26.04 ships python3.14 in its main archive
+ARG base_image=ubuntu:26.04
 
 #-------------------------------RUNNER--------------------------------
 # Create a new stage for the runtime environment
@@ -14,12 +14,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install runtime dependencies
 RUN useradd -m -s /bin/bash container && \
     apt-get update && \
-    apt-get install -y software-properties-common &&\    
-    add-apt-repository ppa:deadsnakes/ppa &&\    
-    apt-get update && \    
-    apt-get install -y python3.13-dev && \                                                         
-    apt-get clean && \                                                        
-    python3.13 -c "import uuid; print(uuid.uuid4())" > /etc/machine-id
+    apt-get install -y --no-install-recommends python3.14-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    python3.14 -c "import uuid; print(uuid.uuid4())" > /etc/machine-id
 
 # Switch to container user
 USER container
